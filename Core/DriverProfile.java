@@ -1,3 +1,5 @@
+package Core;
+
 public class DriverProfile {
     private String driverName;
     private String preferredStyle = "Balanced"; // Can be updated later

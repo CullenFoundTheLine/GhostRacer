@@ -1,3 +1,5 @@
+package Core;
+
 public class TrackInfo {
     private String name;
     private double recommendedSpeed;

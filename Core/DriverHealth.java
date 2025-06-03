@@ -1,3 +1,5 @@
+package Core;
+
 public class DriverHealth {
     private int heartRate; // in BPM
     private double stressLevel; // 0.0 to 1.0

@@ -1,0 +1,27 @@
+import java.util.*;
+import UIFACE.UserManager;
+import UIFACE.User;
+
+public class UserManager {
+    private final Map<String, User> users = new HashMap<>();
+
+    public void registerUser(String username, String password, User.Role role) {
+        users.put(username, new User(username, password, role));
+    }
+
+    public User login(String username, String password) {
+        User user = users.get(username);
+        if (user != null && user.checkPassword(password)) {
+            return user;
+        }
+        return null;
+    }
+
+    public List<User> getUsersByRole(User.Role role) {
+        List<User> result = new ArrayList<>();
+        for (User user : users.values()) {
+            if (user.getRole() == role) result.add(user);
+        }
+        return result;
+    }
+}

@@ -1,0 +1,45 @@
+package Core;
+
+public class RaceData {
+    private String driverName;
+    private double sectionTime;
+    private double tireTemp;
+    private double tireWear;
+    private double speed;
+    private double throttle;
+    private double brakeForce;
+    private double cornerSpeed;
+    private double suspensionLoad;
+    private double gapBehind;
+    private double gapAhead;
+
+    public RaceData(String driverName, double sectionTime, double tireTemp, double tireWear,
+                    double speed, double throttle, double brakeForce,
+                    double cornerSpeed, double suspensionLoad,
+                    double gapBehind, double gapAhead) {
+        this.driverName = driverName;
+        this.sectionTime = sectionTime;
+        this.tireTemp = tireTemp;
+        this.tireWear = tireWear;
+        this.speed = speed;
+        this.throttle = throttle;
+        this.brakeForce = brakeForce;
+        this.cornerSpeed = cornerSpeed;
+        this.suspensionLoad = suspensionLoad;
+        this.gapBehind = gapBehind;
+        this.gapAhead = gapAhead;
+    }
+
+    // Getters for all fields (add as needed)
+    public String getDriverName() { return driverName; }
+    public double getSectionTime() { return sectionTime; }
+    public double getTireTemp() { return tireTemp; }
+    public double getTireWear() { return tireWear; }
+    public double getSpeed() { return speed; }
+    public double getThrottle() { return throttle; }
+    public double getBrakeForce() { return brakeForce; }
+    public double getCornerSpeed() { return cornerSpeed; }
+    public double getSuspensionLoad() { return suspensionLoad; }
+    public double getGapBehind() { return gapBehind; }
+    public double getGapAhead() { return gapAhead; }
+}

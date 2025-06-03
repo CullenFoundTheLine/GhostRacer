@@ -1,3 +1,9 @@
+package Ghost;
+
+import Core.DriverHealth;
+import Core.ECUSettings;
+import Core.RaceData;
+
 public class GhostHUD {
     public void displayDriverHealth(DriverHealth health) {
         System.out.println("Heart Rate: " + health.getHeartRate() + " bpm");

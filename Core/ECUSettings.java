@@ -1,3 +1,4 @@
+package Core;
 public class ECUSettings {
     private boolean abs;
     private boolean tractionControl;

@@ -1,3 +1,7 @@
+package Ghost;
+
+import Core.DriverHealth;
+
 public class GhostVoice {
     public void respondToDriverHealth(DriverHealth health) {
         if (health.getHeartRate() > 140) {

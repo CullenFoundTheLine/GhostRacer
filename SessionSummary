@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Example method to add to GhostMemory or a new summary class
+public void printLapTable(String driverName) {
+    List<Double> laps = getDriverLaps(driverName);
+    System.out.println("Lap | Time   | Tire Wear | Action    | Mistake");
+    System.out.println("-----------------------------------------------");
+    for (int i = 0; i < laps.size(); i++) {
+        // Replace with real data as you expand your Lap class
+        String action = "MAINTAIN"; // Placeholder
+        String mistake = "-";       // Placeholder
+        double tireWear = 0;        // Placeholder
+        System.out.printf(" %d  | %.2f |   %.1f%%    | %-9s | %s\n",
+            i + 1, laps.get(i), tireWear, action, mistake);
+    }
+}
+
+// In GhostMemory or a new SessionSummary class
+private List<Feedback> feedbackList = new ArrayList<>();
+
+public void addFeedback(Feedback fb) {
+    feedbackList.add(fb);
+}
+
+public List<Feedback> getFeedbackForDriver(String driverName) {
+    return feedbackList.stream()
+        .filter(fb -> fb.driverName.equals(driverName))
+        .toList();
+}
+
+for (String driver : driverNames) {
+    System.out.println("=== FEEDBACK FOR " + driver.toUpperCase() + " ===");
+    for (Feedback fb : memory.getFeedbackForDriver(driver)) {
+        System.out.println("[" + fb.role + "] " + fb.message + " | Suggestion: " + fb.suggestedAction);
+    }
+}

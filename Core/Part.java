@@ -1,3 +1,5 @@
+package Core;
+
 public class Part {
     private final String name;
     private final double simBoost;
@@ -20,6 +22,8 @@ public class Part {
     public String getCategory() {
         return category;
     }
+
+    public double getPowerGain() { return simBoost; }
 
     public void print() {
         System.out.printf("Part: %s | Boost: +%.1f | Category: %s%n", name, simBoost, category);

@@ -1,5 +1,7 @@
 import java.util.*;
 
+import Core.TrackInfo;
+
 public class TrackSelector {
     private final Map<String, TrackInfo> tracks = new LinkedHashMap<>();
 

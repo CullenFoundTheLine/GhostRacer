@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import UIFACE.UserManager;
+import UIFACE.User;
+
+public class User {
+    public enum Role { DRIVER, ADMIN, ASSOCIATE, COACH }
+
+    private final String username;
+    private final String password; // In production, use hashed passwords!
+    private final Role role;
+
+    public User(String username, String password, Role role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public String getUsername() { return username; }
+    public Role getRole() { return role; }
+    public boolean checkPassword(String input) { return password.equals(input); }
+}
+
+class Driver {
+    private final String name;
+    private final Profile profile;
+
+    public Driver(String name) {
+        this.name = name;
+        this.profile = new Profile(name);
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+}
+
+class Profile {
+    private final String driverName;
+
+    public Profile(String driverName) {
+        this.driverName = driverName;
+    }
+
+    // Other profile-related methods
+}
+
+class Memory {
+    public void recordDriverHabit(String name, String habit) {
+        // Implementation here
+    }
+}
+
+class UserManager {
+    private final Map<String, User> users = new HashMap<>();
+
+    public void registerUser(String username, String password, User.Role role) {
+        User user = new User(username, password, role);
+        users.put(username, user);
+    }
+
+    public User login(String username, String password) {
+        User user = users.get(username);
+        if (user != null && user.checkPassword(password)) {
+            return user;
+        }
+        return null;
+    }
+}
+
+class DriverManager {
+    private final List<Driver> drivers = new ArrayList<>();
+    private final Map<String, Profile> driverProfiles = new HashMap<>();
+    private final Memory memory = new Memory();
+    private final UserManager userManager = new UserManager();
+    private final Map<String, User> driverUserMap = new HashMap<>();
+
+    public void addDriver(String name) {
+        Driver driver = new Driver(name);
+        drivers.add(driver);
+        driverProfiles.put(name, driver.getProfile());
+        memory.recordDriverHabit(name, "Unknown");
+
+        // Register and map user (for demo, password is "pass" and role is DRIVER)
+        userManager.registerUser(name, "pass", User.Role.DRIVER);
+        driverUserMap.put(name, userManager.login(name, "pass"));
+    }
+}

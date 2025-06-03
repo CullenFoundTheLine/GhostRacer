@@ -1,5 +1,8 @@
+package Ghost;
 
 import java.util.*;
+
+import Core.FIARegulations;
 
 public class GhostMind {
     private GhostMemory memory;

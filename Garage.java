@@ -1,3 +1,4 @@
+import Core.Car;
 import java.util.*;
 
 public class Garage {

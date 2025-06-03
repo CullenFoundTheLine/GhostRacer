@@ -1,3 +1,7 @@
+package model;
+
+import model.TurnSection;
+
 public class TurnSection {
     private int id;
     private double length;
@@ -6,6 +10,10 @@ public class TurnSection {
     private double exitSpeed;
     private int brakeZoneIntensity;
     private String color;
+
+    public String getColor() {
+        return color;
+    }
     private String name;
 
     public TurnSection(int id, double length, double angleDegrees, double entrySpeed, double exitSpeed, int brakeZoneIntensity, String color, String name) {

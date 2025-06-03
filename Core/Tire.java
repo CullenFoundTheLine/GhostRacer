@@ -1,3 +1,4 @@
+package Core;
 public class Tire {
     private final String name;
     private final double gripModifier;

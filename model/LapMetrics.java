@@ -1,5 +1,7 @@
+package model;
 import java.util.HashMap;
 import java.util.Map;
+import Core.DriverHealth;
 
 public class LapMetrics {
     private double lapTime;

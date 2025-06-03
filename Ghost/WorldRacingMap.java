@@ -1,3 +1,4 @@
+package Ghost;
 import java.util.*;
 
 public class WorldRacingMap {

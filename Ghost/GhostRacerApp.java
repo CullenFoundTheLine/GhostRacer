@@ -1,4 +1,11 @@
+package Ghost;
 import java.util.*;
+
+// If WorldRacingMap is in the same package, you don't need to import it.
+// If it's in a different package, use the correct package name, e.g.:
+// import somepackage.WorldRacingMap;
+// import somepackage.WorldRacingMap.Track;
+import Ghost.WorldRacingMap;
 
 public class GhostRacerApp {
     private static final Scanner scanner = new Scanner(System.in);
@@ -6,6 +13,10 @@ public class GhostRacerApp {
 
     public static void main(String[] args) {
         System.out.println("==== Welcome to GhostRacer ====");
+
+        // Add this at the start of your main method in GhostRacerApp.java
+        WorldRacingMap map = new WorldRacingMap();
+        map.printTrackSelection();
 
         // Step 1: Choose race type
         String raceType = chooseRaceType();

@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ExampleMain",
+            "request": "launch",
+            "mainClass": "ExampleMain",
+            "projectName": "src_d8b8cb73"
+        },
+        {
+            "type": "java",
+            "name": "GhostRacerApp",
+            "request": "launch",
+            "mainClass": "GhostRacerApp",
+            "projectName": "src_d8b8cb73"
+        }
+    ]
+}

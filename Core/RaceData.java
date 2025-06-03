@@ -1,3 +1,4 @@
+package Core;
 public class RaceData {
     private String driverName;
     private double lapTime;
