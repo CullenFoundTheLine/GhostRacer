@@ -24,4 +24,6 @@ public class TurnSection {
     public double getAngleDegrees() { return angleDegrees; }
     public int getBrakeZoneIntensity() { return brakeZoneIntensity; }
     public String getName() { return name; }
+    public int getId() { return id; }
+    public double getLength() { return length; }
 }

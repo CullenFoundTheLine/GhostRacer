@@ -1,3 +1,4 @@
+import model.TurnSection;
 import java.util.*;
 
 public class TrackMemory {
@@ -7,7 +8,7 @@ public class TrackMemory {
     private int maxCarsSideBySide;
 
     private List<TurnSection> turns = new ArrayList<>();
-    private Map<Integer, LapMetrics> lapData;
+    private Map<Integer, LapMetrics> lapData; // Use LapMetrics
 
     public TrackMemory(String trackName, double trackLengthKm, double averageWidthMeters, int maxCarsSideBySide) {
         this.trackName = trackName;
@@ -17,7 +18,6 @@ public class TrackMemory {
         this.lapData = new HashMap<>();
     }
 
-    // Update addTurn to include name
     public void addTurn(int id, double length, double angleDegrees, double entrySpeed, double exitSpeed, int brakeZoneIntensity, String color, String name) {
         turns.add(new TurnSection(id, length, angleDegrees, entrySpeed, exitSpeed, brakeZoneIntensity, color, name));
     }
@@ -30,4 +30,20 @@ public class TrackMemory {
         return turns;
     }
     public Map<Integer, LapMetrics> getLapData() { return lapData; }
+
+    public String getTrackName() {
+        return trackName;
+    }
+
+    public double getTrackLengthKm() {
+        return trackLengthKm;
+    }
+
+    public double getAverageWidthMeters() {
+        return averageWidthMeters;
+    }
+
+    public int getMaxCarsSideBySide() {
+        return maxCarsSideBySide;
+    }
 }

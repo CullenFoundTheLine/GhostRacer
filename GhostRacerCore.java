@@ -77,7 +77,7 @@ public class GhostRacerCore {
                 // Create a DriverHealth object for this driver
                 DriverHealth driverHealth = new DriverHealth();
 
-                for (TurnSection turn : trackMemory.getTurns()) {
+                for (model.TurnSection turn : trackMemory.getTurns()) {
                     double speed = turn.getEntrySpeed() + rand.nextDouble() * 10;
                     boolean canDrift = speed > turn.getExitSpeed();
                     double tireTemp = 80 + rand.nextDouble() * 25;
@@ -114,10 +114,12 @@ public class GhostRacerCore {
                     RacePredictor.Decision decision = racePredictor.predictMove(
                         playerCar,
                         frontCar,
-                        new TrackInfo(turn.getName(), turn.getEntrySpeed(), "corner", 0, 1, false), // minimal TrackInfo
-                        0, // trackPosition (not used)
-                        gapAhead,
-                        4, // currentGear (stub)
+                        new TrackInfo(turn.getName(), turn.getEntrySpeed(), "corner", 0, 1, false),
+                        turn,           // <-- Pass the TurnSection object here
+                        trackMemory,    // <-- Pass the TrackMemory object here
+                        0.0,            // trackPosition (stub or actual value, now as double)
+                        gapAhead,       // gapAhead as double
+                        4,              // int parameter
                         driverHealth,
                         brakeZoneIntensity,
                         severeContact,
@@ -160,7 +162,12 @@ public class GhostRacerCore {
                 ));
 
                 trackMemory.recordLapData(lap, totalLapTime, totalTireWear, totalBrakePressure, lap == 2 ? lap : -1);
-                Map<String, Object> lapDataMap = trackMemory.getLapData().get(lap).toMap();
+                LapMetrics lapMetrics = trackMemory.getLapData().get(lap);
+                Map<String, Object> lapDataMap = new HashMap<>();
+                lapDataMap.put("lapTime", lapMetrics.getLapTime());
+                lapDataMap.put("tireWear", lapMetrics.getTireWear());
+                lapDataMap.put("brakePressure", lapMetrics.getBrakePressure());
+                lapDataMap.put("pitLap", lapMetrics.getPitLap());
                 Map<String, Double> lapDataDoubleMap = new HashMap<>();
                 for (Map.Entry<String, Object> entry : lapDataMap.entrySet()) {
                     if (entry.getValue() instanceof Number) {
